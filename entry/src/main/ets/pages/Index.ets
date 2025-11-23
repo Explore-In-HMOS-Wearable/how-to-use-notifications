@@ -17,12 +17,12 @@ struct Index {
         })
         .fontSize(18)
 
-      Button("Notification with Agent")
+      Button('Notification with Agent')
         .margin({top: 8})
         .onClick(()=>{
           NotificationService.triggerNotificationWithAgent()
         })
-      Button("Simple Notification")
+      Button('Simple Notification')
         .margin({top: 10})
         .onClick(()=>{
           NotificationService.triggerSimpleNotification()

@@ -26,7 +26,7 @@ export class NotificationService {
       }
       hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in publishing notification.');
       promptAction.showToast({
-        message: "Sent simple notification",
+        message: 'Sent simple notification',
         duration: 1500
       })
     });
@@ -83,7 +83,7 @@ export class NotificationService {
         }
         hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in publishing notification.');
         promptAction.showToast({
-          message: "Sent notification w/agent",
+          message: 'Sent notification w/agent',
           duration: 1500
         })
       });
