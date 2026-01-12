@@ -3,7 +3,7 @@ import { NotificationService } from '../service/NotificationService';
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Usage of \nNotification Kit';
+  private message: string = 'Usage of \nNotification Kit';
 
   build() {
     Column() {
@@ -20,12 +20,12 @@ struct Index {
       Button('Notification with Agent')
         .margin({top: 8})
         .onClick(()=>{
-          NotificationService.triggerNotificationWithAgent()
+          NotificationService.triggerNotificationWithAgent(this.getUIContext())
         })
       Button('Simple Notification')
         .margin({top: 10})
         .onClick(()=>{
-          NotificationService.triggerSimpleNotification()
+          NotificationService.triggerSimpleNotification(this.getUIContext())
         })
 
     }

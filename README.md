@@ -6,9 +6,10 @@ This codelab demonstrates how to create and display interactive notifications in
 Notifications are an essential way to provide timely information and re-engage users. By attaching a WantAgent, you can let users tap the notification to open a specific page, trigger an action, or start a service.
 
 # Preview
+
 <div>
-    <img src="./screenshots/output.png" width="25%" />
-    <img src="./screenshots/output2.png" width="25%" />
+<img src="./screenshots/output.png" width="25%" />
+<img src="./screenshots/output2.png" width="25%" />
 </div>
 
 # Use Cases
@@ -28,7 +29,7 @@ Libraries & Kits:
 
 - @kit.NotificationKit Used for creating and managing both actionable and passive notifications.
 
-# Project Directory
+# Directory Structure
 ```
 |---pages
 |   |---Index.ets              # Entry point for routing and init logic

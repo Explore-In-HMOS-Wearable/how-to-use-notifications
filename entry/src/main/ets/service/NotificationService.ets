@@ -2,20 +2,21 @@ import { notificationManager } from '@kit.NotificationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { wantAgent, WantAgent } from '@kit.AbilityKit';
-import { promptAction } from '@kit.ArkUI';
+import { PromptAction } from '@kit.ArkUI';
 
 const TAG: string = '[PublishOperation]';
 const DOMAIN_NUMBER: number = 0xFF00;
 
 export class NotificationService {
-  static async triggerSimpleNotification(): Promise<void> {
+
+  static async triggerSimpleNotification(uiContext: UIContext): Promise<void> {
     let notificationRequest: notificationManager.NotificationRequest = {
       id: 1,
       content: {
         notificationContentType: notificationManager.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT, // Basic notification
         normal: {
           title: 'SmartWord',
-          text: 'Don\'t forget to repeat today\'s words',
+          text: 'Don\'t forget to repeat today\'s words'
         }
       }
     };
@@ -25,14 +26,14 @@ export class NotificationService {
         return;
       }
       hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in publishing notification.');
-      promptAction.showToast({
+      uiContext.getPromptAction().showToast({
         message: 'Sent simple notification',
         duration: 1500
       })
     });
   }
 
-  static async triggerNotificationWithAgent(): Promise<void> {
+  static async triggerNotificationWithAgent(uiContext: UIContext): Promise<void> {
     let wantAgentInfo: wantAgent.WantAgentInfo = {
       wants: [
         {
@@ -67,12 +68,12 @@ export class NotificationService {
           notificationContentType: notificationManager.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
           normal: {
             title: 'SmartWord',
-            text: 'Your 5 words for today are ready!',
-          },
+            text: 'Your 5 words for today are ready!'
+          }
         },
         id: 6,
         wantAgent: data,
-        actionButtons: [actionButton],
+        actionButtons: [actionButton]
       }
 
       notificationManager.publish(notificationRequest, (err: BusinessError) => {
@@ -82,7 +83,7 @@ export class NotificationService {
           return;
         }
         hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in publishing notification.');
-        promptAction.showToast({
+        uiContext.getPromptAction().showToast({
           message: 'Sent notification w/agent',
           duration: 1500
         })
